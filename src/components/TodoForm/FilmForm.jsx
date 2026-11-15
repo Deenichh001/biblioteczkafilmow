@@ -1,14 +1,14 @@
-function TodoForm({ setTodos }) {
+function FilmForm({ setFilms }) {
     let value = ' ';
     return(
         <div>
             <input 
-                placeholder='Wpisz zadanie...' 
+                placeholder='Wpisz film...' 
                 onChange={e => (value = e.target.value)}
             />
             <button 
                 onClick={() => {
-                    setTodos(prevTodos => [...prevTodos,value]);
+                    setFilms(prevFilms => [...prevFilms,value]);
                     value = ' ';
                 }}>
                 Dodaj
@@ -17,4 +17,4 @@ function TodoForm({ setTodos }) {
     );
 }
 
-export default TodoForm;
+export default FilmForm;
