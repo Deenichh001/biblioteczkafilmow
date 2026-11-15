@@ -1,25 +1,39 @@
 import './index.css'
-import { UseState } from 'react';
-import FilmForm from './components/Filmform/FilmForm';
+import { useState, useEffect } from 'react'
+import FilmList from './components/FilmList/FilmList.jsx'
 
 function App() {
+  const [films, setFilms] = useState([])
+  const [newFilm, setNewFilm] = useState('')
 
-  const [films, setFilms] = useState(
-    'Home Alone',
-    'The Elf',
-    'The Grinch',
-  )
+  useEffect(() => {
+    setFilms(['Home Alone', 'The Polar Express', 'The Grinch'])
+  }, [])
 
-  return ( 
+  const addFilm = () => {
+    const title = newFilm.trim()
+    if (!title) return
+
+    setFilms(prevFilms => [...prevFilms, title])
+    setNewFilm('')
+  }
+
+  return (
     <>
-    <Header /> 
+      <h1>Moje Filmy: </h1>
 
-    <FilmForm />
-    <FilmList films={films} />
+      <div>
+        <input
+          placeholder="Wpisz tytuł filmu..."
+          value={newFilm}
+          onChange={e => setNewFilm(e.target.value)}
+        />
+        <button onClick={addFilm}>Dodaj film</button>
+      </div>
 
+      <FilmList films={films} />
     </>
-
-); 
+  )
 }
 
-export default App;
+export default App
