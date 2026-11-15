@@ -1,10 +1,10 @@
 import './index.css'
 import { UseState } from 'react';
-import TodoForm from './components/Todoform/TodoForm';
+import FilmForm from './components/Filmform/FilmForm';
 
 function App() {
 
-  const [todos, setTodos] = useState(
+  const [films, setFilms] = useState(
     'Home Alone',
     'The Elf',
     'The Grinch',
@@ -14,8 +14,8 @@ function App() {
     <>
     <Header /> 
 
-    <TodoForm />
-    <TodoList todos={todos} />
+    <FilmForm />
+    <FilmList films={films} />
 
     </>
 
