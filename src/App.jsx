@@ -1,8 +1,6 @@
 import './index.css'
 import { UseState } from 'react';
-import Header from './components/Header/Header';
 import TodoForm from './components/Todoform/TodoForm';
-import Todolist from './components/Todolist/Todolist';
 
 function App() {
 
